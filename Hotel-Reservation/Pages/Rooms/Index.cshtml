@@ -1,0 +1,98 @@
+﻿@page
+@model Hotel_Reservation.Pages.Rooms.IndexModel
+@{
+	ViewData["Title"] = "Our-Rooms";
+}
+<br />
+
+<head>
+		<style>
+			h3{
+				font-family:Bahnschrift;
+				text-align:center;
+				margin-top:20px;
+				margin-bottom:20px;
+				color:midnightblue;
+				background:aliceblue;
+				box-shadow: 0 0.3rem 0.8rem #fff3;
+				font-size:34px;
+
+			}
+		</style>
+
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				var tableRows = document.querySelectorAll('.table tbody tr');
+
+				tableRows.forEach(function (row) {
+					var guestIdCell = row.querySelector('td:nth-child(4)');
+					var isOccupiedCell = row.querySelector('td:nth-child(5)');
+
+					// Check guest_id value and set content
+					var guestId = guestIdCell.textContent.trim();
+					if (guestId === '0') {
+						guestIdCell.innerHTML = '<span class="badge bg-danger">X</span>';
+					}
+
+					// Check is_occupied value and set content
+					var isOccupied = isOccupiedCell.textContent.trim();
+					if (isOccupied === 'False') {
+						isOccupiedCell.innerHTML = '<span class="badge bg-success">Yes</span>';
+					} else {
+						isOccupiedCell.innerHTML = '<span class="badge bg-danger">No</span>';
+					}
+				});
+			});
+	</script>
+
+	
+</head>
+
+<body class="rooms-table">
+
+	<main class="allrooms">
+		<section class="table_header">
+			<h2>Our Rooms</h2>
+		</section>
+
+		<!-- Table for Displaying Rooms -->
+		<section class="table_body">
+			@foreach (var floor in Model.listroom.GroupBy(r => r.room_number.Substring(0, 1)))
+			{
+				/* The actual GroupBy() LINQ operation is somewhat like :
+				var floor = from r in Model.listroom 
+				group item by r.room_numer.Substring(0,1) into grouped
+				select new { room_numer.Substring(0,1) = grouped.Key,
+							Count = grouped.Count() };
+				*/
+
+				<h3>Floor @floor.Key</h3>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ROOM_NO</th>
+							<th>ROOM_TYPE</th>
+							<th>PRICE</th>
+							<th>GUEST_ID</th>
+							<th>AVAILABLE</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in floor)
+						{
+							<tr>
+								<td>@item.room_number</td>
+								<td>@item.room_type</td>
+								<td>@item.price</td>
+								<td>@item.guest_id</td>
+								<td>@item.is_occupied</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+		</section>
+
+	</main>
+</body>

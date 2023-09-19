@@ -1,0 +1,55 @@
+﻿@page
+@model Hotel_Reservation.Pages.Guests.IndexModel
+@{
+	ViewData["Title"] = "Our-Guests";
+}
+
+<br />
+
+	<body class="guests-table">
+
+		<main class="allguests">
+			
+			<section class="table_header">
+			<h2 >Our Guests</h2>
+			<p >Click to Add a New Guest &nbsp; </p> <a class=" btn btn-primary rounded btn-sm" href="/Guests/Create">New Guest</a>
+			</section>
+	
+			<section class="table_body">
+				<table class=" table table-borderless table-striped" >
+
+					<thead>
+						<tr >
+							<th>ID</th>
+							<th>FIRST_NAME</th>
+							<th>LAST_NAME</th>
+							<th>PHONE</th>
+							<th>EMAIL</th>
+							<th>CHECK_IN</th>
+							<th>ACTION</th>
+
+						</tr>
+					</thead>
+
+					<tbody>
+						@foreach (var item in Model.listguests)
+						{
+							<tr>
+								<td>@item.guest_id</td>
+								<td>@item.first_name</td>
+								<td>@item.last_name</td>
+								<td>@item.email</td>
+								<td>@item.phone</td>
+								<td>@item.check_in</td>
+								<td>
+									<a class="btn btn-primary btn-sm" href="/Guests/Edit?id=@item.guest_id">Edit</a>
+									<a class="btn btn-danger btn-sm" href="/Guests/Delete?id=@item.guest_id">Delete</a>
+								</td>
+							</tr>
+						}
+
+					</tbody>
+					</table>
+			</section>
+		</main>
+</body>

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hotel_Reservation</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Hotel_Reservation.styles.css" asp-append-version="true" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Get the current page URL to determine which link should be active
+            var currentPageUrl = window.location.href;
+
+            //Remove the 'active' class for all link;
+
+            $(".nav-link").removeClass("active");
+
+            // Add the 'active' class to the link that corresponds to the current page
+            $(".nav-link").each(function () {
+                if (currentPageUrl.indexOf($(this).attr("href")) !== -1) {
+                    $(this).addClass("active");
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <header class="header"> 
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+
+                <div class="logoname">
+                <img src="https://www.freepnglogos.com/uploads/hotel-logo-png/black-hotel-building-png-Icon-download-21.png" alt="logo" class="logo" />
+
+                <a class="navbar-brand" asp-area="" asp-page="/Index">SiZZling Inn</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                </div>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between thelinks">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" itemid="homeLink" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-dark " itemid="guestsLink" asp-area="" asp-page="/Guests/Index">Guests</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark " itemid="roomsLink" asp-area="" asp-page="/Rooms/Index">Rooms</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark " itemid="bookingLink" asp-area="" asp-page="/Booking/Booking">Book Now</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Hotel_Reservation - <a asp-area="" asp-page="#">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

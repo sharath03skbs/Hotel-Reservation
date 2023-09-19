@@ -1,0 +1,39 @@
+﻿@page
+@using System.Data.SqlClient
+
+@{
+	try
+	{
+
+		String guest_id = Request.Query["id"];
+		String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=hotel-reservation;Integrated Security=True";
+
+		using (SqlConnection connection = new SqlConnection(connectionString))
+		{
+			connection.Open();
+			// Update the guest_id to 0 in the rooms table for records associated with the deleted guest
+			string updateRoomsSql = "UPDATE rooms SET guest_id = NULL,is_occupied=0 WHERE guest_id = @guest_id";
+			using (SqlCommand updateRoomsCommand = new SqlCommand(updateRoomsSql, connection))
+			{
+				updateRoomsCommand.Parameters.AddWithValue("@guest_id", guest_id);
+				updateRoomsCommand.ExecuteNonQuery();
+			}
+
+			// Then, delete the guest
+			string deleteGuestSql = "DELETE FROM guests WHERE guest_id = @guest_id";
+			using (SqlCommand deleteGuestCommand = new SqlCommand(deleteGuestSql, connection))
+			{
+				deleteGuestCommand.Parameters.AddWithValue("@guest_id", guest_id);
+				deleteGuestCommand.ExecuteNonQuery();
+			}
+		}
+
+	}
+	catch (Exception ex)
+	{
+		Console.WriteLine(ex.ToString());
+	}
+
+	Response.Redirect("/Guests/Index");
+
+}

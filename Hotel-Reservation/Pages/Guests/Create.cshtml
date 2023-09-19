@@ -1,0 +1,75 @@
+﻿@page
+@model Hotel_Reservation.Pages.Guests.CreateModel
+@{
+	ViewData["Title"] = "Add-Guest";
+}
+
+<br />
+<body class="addguest">
+
+	<main class="form-content">
+		<h2 style="text-align:center;margin:20px 0 20px 0 !important;">Enter the Guest details</h2>
+
+@if (Model.errormsg.Length>0)
+{
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		<strong>@Model.errormsg</strong>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+}
+
+	<form method="POST">
+
+				<div class="row mb-3">
+					<label class=" col-sm-3 col-form-label" style="text-align:center;font-size:20px;">First_Name</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="first_name" value="@Model.guestinfo.first_name" />
+					</div>
+				</div>
+
+				<div class="row mb-3">
+						<label class=" col-sm-3 col-form-label" style="text-align:center;font-size:20px;">Last_Name</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="last_name" value="@Model.guestinfo.last_name" />
+					</div>
+				</div>
+
+				<div class="row mb-3">
+						<label class=" col-sm-3 col-form-label" style="text-align:center;font-size:20px;">Email</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="email" value="@Model.guestinfo.email" />
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<label class=" col-sm-3 col-form-label"style="text-align:center;font-size:20px;">Phone</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" name="phone" value="@Model.guestinfo.phone" />
+					</div>
+				</div>
+
+		@if (Model.successmsg.Length > 0)
+		{
+			<div class="row mb-3">
+				<div class="col-sm-9">
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+						<strong>@Model.successmsg</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				</div>
+			</div>
+		}
+
+				<div class="row mb-3">
+					<div class="offset-sm-3 col-sm-3 d-grid">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+					<div class="col-sm-3 d-grid">
+						<a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+					</div>
+				</div>
+	</form>
+
+	</main>
+
+</body>

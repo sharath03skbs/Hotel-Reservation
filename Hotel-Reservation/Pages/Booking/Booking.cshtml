@@ -1,0 +1,76 @@
+﻿@page
+@model Hotel_Reservation.Pages.Booking.BookingModel
+@{
+	ViewData["Title"] = "Book-Now";
+}
+
+<body class="book">
+<div class=" container addnform">
+	<div class=" row justify-content-center ">
+		<div class="col col-md-6 text-center">
+
+			<div class= "container createnew">
+
+				<p class="addhead">Please Add a new guest before proceeding.</p>
+				<a class=" btn btn-primary btn-sm" href="/Guests/Create">CLICK HERE</a>
+			</div>
+
+
+			<form method="POST">
+
+				<div class="row mb-3">
+					<label class=" col-sm-3 col-form-label labels">GUEST ID</label>
+					<div class="col-sm-6">
+						<select class="form-select"name="guestid">
+							<option value="">Select a Guest ID</option>
+							@foreach (var guestId in Model.guestlist ?? new int[0])
+							{
+								<option value="@guestId">Guest @guestId</option>
+							}
+						</select>
+					</div>
+				</div>
+
+
+
+				<div class="row mb-3">
+					<label class=" col-sm-3 col-form-label labels">ROOM TYPE</label>
+					<div class="col-sm-6">
+						<select  class="form-select" name="room">
+							<option value="standard">Standard</option>
+							<option value="deluxe">Deluxe</option>
+							<option value="suite">Suite</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="row mb-3">
+					<label class=" col-sm-3 col-form-label labels">ROOM NO.</label>
+					<div class="col-sm-6">
+						<select  class="form-select" name="room_num">
+							<option value="">Select a Room Number</option>
+							@foreach (var roomNumber in Model.Availablerooms ?? new int[0])
+							{
+								<option value="@roomNumber">Room @roomNumber</option>
+							}
+						</select>
+					</div>
+				</div>
+				
+				<div class="row mb-3">
+					<div class="offset-sm-3 col-sm-3 d-grid">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+					<div class="col-sm-3 d-grid">
+						<a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+
+	</div>
+</div>
+</body>
+

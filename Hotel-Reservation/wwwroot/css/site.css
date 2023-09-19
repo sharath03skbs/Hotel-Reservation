@@ -1,0 +1,299 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+body {  
+  margin-bottom: 60px;
+
+}
+*{
+    font-family: 'Lucida Bright';
+    font-weight:bold;
+   
+}
+
+.header{
+    display:flex;
+    justify-content:center;
+}
+
+.thelinks { /*Body inside which nav elements are present*/
+    font-size: 18px;
+}
+.thelinks a {
+    /*The nav elements that appear at the top*/
+    padding: 15px;
+    border: 1px ridge midnightblue;
+    margin: 15px;
+    border-radius:5px;
+}
+.thelinks a:hover{
+    transition: 1s;
+    background-color: skyblue;
+}
+
+.nav-link.active{
+    background-color:skyblue; /*For styling the links that are clicked */
+}
+
+
+/*Home page styling---------------------*/
+.back-image {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80);
+    background-size:cover;
+    background-position:center; /*Home page background*/
+}
+.logo{
+    width:65px;
+    height:45px;
+    position:absolute;
+    top:10px;
+    left:14px;
+}
+.logoname{
+    position:relative;
+    width:95px;
+    height:85px;
+    display:flex;
+    border : 2px ridge midnightblue;
+    
+}
+    .logoname a {
+        font-family: Jokerman;
+        font-size: 14px;
+        position: absolute;
+        bottom: 0;
+        left: 5px;
+    }
+
+.content{
+    width:100%;
+    position: absolute;
+    top: 20%;
+    transform: translate(-5%,-50%);
+    text-align:center;
+    color:aliceblue;
+}
+.content h1{
+    font-size:70px;
+    margin-top :80px;
+}
+.content ul li{
+    list-style:none;
+    margin: 20px auto;
+    font-weight:100;
+    line-height : 25px;
+}
+
+
+.booknow{
+ margin: 80px 150px 80px 150px;
+}
+
+
+.rooms {
+    display: flex;
+    align-items: center;
+}
+
+.rooms img {
+        flex: 1; 
+        max-width: 50%; 
+        margin-right: 20px;
+}
+
+.rooms desc{
+    flex:1;
+    font-size:18px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.room2 {
+    display: flex;
+    align-items: center;
+}
+
+.roomhead{
+    margin-left:25%;
+    font-size:34px;
+    font-family:'Times New Roman', Times, serif;
+    border:1px solid black;
+    border-radius:5px;
+}
+
+/*--------------------------------------------------------*/
+
+/*Book now page styling
+    -----------------------------------------------------------
+*/
+.createnew{
+    margin: 50px 10px 50px 10px
+}
+
+.addnform {
+    margin-bottom: 100px;
+    box-shadow: 0 .4rem .8rem #00000047;
+    border-radius: 20px;
+    background-color: #fff4;
+    backdrop-filter: blur(10px);
+    width: 68vw;
+    height: 69vh;
+}
+
+.addhead{
+    font-size:30px;
+    color:midnightblue;
+    
+}
+.labels {
+    font-size: 16px;
+    color: midnightblue;
+    font-family:serif;
+    font-weight:bold;
+}
+/*------------------------------------------------------*/
+
+
+/*Custom Buttons
+    -------------------------
+*/
+.btn-primary {
+    color: #fff;
+    background-color: #01898ee6;
+    border-color: #efff00;
+}
+
+.btn-outline-primary{
+    color:red;
+    border-color:red;
+}
+
+/*-----------------------------*/
+
+
+/*Guests Page Styling 
+    ------------------------------------------------
+    
+*/
+
+table,th,td{
+    padding : 1rem !important;
+}
+table{
+    width:100%;
+}
+
+thead th {
+    color:white;
+    background-color: #004b84 !important;
+    position: sticky;
+    top: 0;
+    left: 0; /*Stlying the table heading*/
+}
+
+tbody tr :hover{
+    background-color: #fff6;
+}
+
+.guests-table, .rooms-table {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column; /*To align head,body,footer vertically*/
+    justify-content: center !important;
+    align-items: center !important;
+    background: url("https://c8.alamy.com/comp/BR2N87/people-checking-in-and-out-at-the-lobby-at-the-bellagio-hotel-las-BR2N87.jpg") center;
+    background-size: cover;
+    backdrop-filter:blur(5px);
+    /*Entire webpage body*/
+}
+.rooms-table {
+    background: url("https://images.pexels.com/photos/1024248/pexels-photo-1024248.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") center;
+    background-size: cover;
+}
+main{
+    flex-grow:1;
+}
+
+    main.allguests ,main.allrooms{
+        width: 82vw !important;
+        height: 90vh !important;
+        background-color: #fff5 !important;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 .4rem .8rem #0005;
+        border-radius: 0.8rem;
+        overflow: hidden;
+        /*Main body inside which the Tableheading,button,table header and body exist*/
+    }
+
+.table_header {
+    width: 100%;
+    height: 15%;
+    background-color: #fff4;
+    padding: 0.8rem 1rem;
+    margin-bottom: 2.5rem;
+}
+    .table_header p {
+        display: inline;
+        margin-left: 40%;
+        font-size: 18px
+    }
+
+    .table_header h2 {
+        text-align: center;
+        border: 2px ridge blue;
+        border-radius:2px;
+    }
+.table_body {
+    width: 85%;
+    max-height: calc(78% - 0.8rem);  /*To calculate the maximum height of body*/
+    background-color: #fffb;
+    margin: 0.8rem 1rem;
+    border-radius: 0.6rem;
+    margin-left: 7.5%;
+    overflow:auto;
+}
+/*---------------------------------------------------------*/
+
+/*Create new guest,edit guest, book now body styling
+    ---------------------------------------------------------------------
+*/
+.addguest,.editguest,.book {
+    min-height: 100vh !important;
+
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+    background-size: cover;
+    backdrop-filter:blur(5px);      /*Entire body*/
+}
+.form-content {
+    /*Form header and the form*/
+    transform: translate(15%, 0%);
+    margin-top: 50px;
+    margin-bottom: 10%;
+}
+
+main.form-content {
+    background-color: #fff4;
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: 0.8rem;
+    width: 68vw;
+    height: 69vh;
+    backdrop-filter: blur(10px);
+}
+/*----------------------------------------*/
