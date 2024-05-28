@@ -2,13 +2,14 @@ using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 using Hotel_Reservation.Pages.Guests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.VisualBasic;
 
 namespace Hotel_Reservation.Pages.Booking
 {
-
+    [Authorize(Policy = "RequireStaffRole")]
     public class BookingModel : PageModel
     {
 		String connectionString = "Data Source=.\\sqlexpress;Initial Catalog=hotel-reservation;Integrated Security=True";

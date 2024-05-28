@@ -297,3 +297,44 @@ main.form-content {
     backdrop-filter: blur(10px);
 }
 /*----------------------------------------*/
+
+/*-----------------Register Page------------*/
+/* Center the form horizontally and vertically */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:75vh;
+}
+/* Style the transparent card */
+.card {
+    background-color: rgba(255, 255, 255, 0.7); /* Transparent white */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px;
+    width:85vh;
+}
+
+/* Style the form elements */
+.form-group {
+    margin-bottom: 20px;
+    font-size:20px;
+}
+
+/* Style the background image */
+.register-body , .login-body {
+    background-image: url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?cs=srgb&dl=pexels-thorsten-technoman-109353-338504.jpg&fm=jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter:blur(5px);
+    height: 100vh;
+}
+/*------------------------------------------------------*/
+

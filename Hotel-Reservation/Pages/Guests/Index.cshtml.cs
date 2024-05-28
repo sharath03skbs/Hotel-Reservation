@@ -1,9 +1,11 @@
 using System.Data.SqlClient;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Hotel_Reservation.Pages.Guests
 {
+    [Authorize(Policy = "RequireStaffRole")]
     public class IndexModel : PageModel
     {
 
