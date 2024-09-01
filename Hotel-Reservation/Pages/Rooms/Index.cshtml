@@ -27,7 +27,7 @@
 
 				tableRows.forEach(function (row) {
 					var guestIdCell = row.querySelector('td:nth-child(4)');
-					var isOccupiedCell = row.querySelector('td:nth-child(5)');
+					var isAvailableCell = row.querySelector('td:nth-child(5)');
 
 					// Check guest_id value and set content
 					var guestId = guestIdCell.textContent.trim();
@@ -36,11 +36,11 @@
 					}
 
 					// Check is_occupied value and set content
-					var isOccupied = isOccupiedCell.textContent.trim();
+					var isOccupied = isAvailableCell.textContent.trim();
 					if (isOccupied === 'False') {
-						isOccupiedCell.innerHTML = '<span class="badge bg-success">Yes</span>';
+						isAvailableCell.innerHTML = '<span class="badge bg-success">Yes</span>';
 					} else {
-						isOccupiedCell.innerHTML = '<span class="badge bg-danger">No</span>';
+						isAvailableCell.innerHTML = '<span class="badge bg-danger">No</span>';
 					}
 				});
 			});

@@ -14,12 +14,25 @@
 			<h2 >Our Guests</h2>
 			<p >Click to Add a New Guest &nbsp; </p> <a class=" btn btn-primary rounded btn-sm" href="/Guests/Create">New Guest</a>
 			</section>
-	
+			@if(!Model.listguests.Any()){
+			<h3 style="
+				font-family:Bahnschrift;
+				text-align:center;
+				margin-top:20px;
+				margin-bottom:20px;
+				color:midnightblue;
+				background:aliceblue;
+				box-shadow: 0 0.3rem 0.8rem #fff3;
+				font-size:28px;">
+				No Guests found
+			</h3>
+			}
+			else{
 			<section class="table_body">
-				<table class=" table table-borderless table-striped" >
+				<table class=" table table-borderless table-striped">
 
 					<thead>
-						<tr >
+						<tr>
 							<th>ID</th>
 							<th>FIRST_NAME</th>
 							<th>LAST_NAME</th>
@@ -43,13 +56,19 @@
 								<td>@item.check_in</td>
 								<td>
 									<a class="btn btn-primary btn-sm" href="/Guests/Edit?id=@item.guest_id">Edit</a>
-									<a class="btn btn-danger btn-sm" href="/Guests/Delete?id=@item.guest_id">Delete</a>
+									<a class="btn btn-danger btn-sm" href="/Guests/Delete?id=@item.guest_id" onclick="return confirmDeletion()">Delete</a>
+									<script type="text/javascript">
+										function confirmDeletion() {
+											return confirm("Are you sure you want to delete this guest? This action cannot be undone.");
+										}
+									</script>
 								</td>
 							</tr>
 						}
 
 					</tbody>
-					</table>
+				</table>
 			</section>
+			}	
 		</main>
 </body>

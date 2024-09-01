@@ -48,9 +48,9 @@
 					</div>
 				</div>
 
-		@if (Model.successmsg.Length > 0)
+			@if (!string.IsNullOrEmpty(Model.successmsg))
 		{
-			<div class="row mb-3">
+			<div id="successMsg" class="row mb-3">
 				<div class="col-sm-9">
 					<div class="alert alert-success alert-dismissible fade show" role="alert">
 						<strong>@Model.successmsg</strong>
@@ -58,6 +58,13 @@
 					</div>
 				</div>
 			</div>
+				<script type="text/javascript">
+					if (document.getElementById('successMsg')) {
+						setTimeout(function () {
+							window.location.href = '/Guests/Index';
+						}, 1500);
+					}
+				</script>
 		}
 
 				<div class="row mb-3">
@@ -65,7 +72,7 @@
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
 					<div class="col-sm-3 d-grid">
-						<a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+						<a class="btn btn-outline-primary" href="/Guests/Index" role="button">Cancel</a>
 					</div>
 				</div>
 	</form>

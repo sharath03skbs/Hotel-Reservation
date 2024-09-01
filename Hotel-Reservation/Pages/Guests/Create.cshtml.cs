@@ -63,8 +63,6 @@ namespace Hotel_Reservation.Pages.Guests
 
             successmsg = " New Guest added successfully";
 
-            Response.Redirect("/Guests/Index");
-
 		}
 	}
 }

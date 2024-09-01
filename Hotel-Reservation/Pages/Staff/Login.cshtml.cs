@@ -43,17 +43,27 @@ namespace Hotel_Reservation.Pages.Staff
                         if (VerifyPassword(Login.Password, storedHashedPassword))
                         {
                             var claims = new List<Claim>
-                        {
+                            {
                             new Claim(ClaimTypes.Name, Login.Username),
                             new Claim(ClaimTypes.Role, role)
-                        };
+                            };
 
                             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
 
                             return RedirectToPage("/Index");
                         }
+                        else
+                        {
+                            //Incorrect Password
+                            ModelState.AddModelError("Login.Password", "The password is incorrect.");
+                        }
                     }
+                    else
+                    {
+						// Username does not exist
+						ModelState.AddModelError("Login.Username", "The username does not exist.");
+					}
                 }
             }
 
